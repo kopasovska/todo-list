@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/todo-list/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vanilla App Template</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/todo-list/index.js"></script>
+    <link rel="stylesheet" crossorigin href="/todo-list/assets/index-DhvOT0Xh.css">
+  </head>
+  <body>
+    <header class="header">
+  <div class="container">
+    <nav class="nav">
+      <a class="nav-logo" href="./index.html" aria-label="Site logo">TODO</a>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link {=$highlight-act}" href="./page-2.html"
+            >Settings</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {=$highlight-curr}" href="./page-3.html"
+            >Theme toggle</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main>
+      <!-- Loads the specified .html file -->
+      <div class="container">
+        <section class="sidebar">
+  <ul class="widget-list">
+    <li class="widget-item greetings">
+      <p>Hi! 👋</p>
+      <p>What's your plan for today?</p>
+    </li>
+    <li class="widget-item calendar">
+      <p>Calendar</p>
+    </li>
+    <li class="widget-item forecast">
+      <p>Forecast</p>
+    </li>
+  </ul>
+</section>
+
+        <section class="tasks">
+  <ul class="task-tab-list">
+    <li class="task-tab-item">All</li>
+    <li class="task-tab-item">Today</li>
+    <li class="task-tab-item">Tomorrow</li>
+    <li class="task-tab-item">Custom</li>
+    <li class="task-tab-item">Edit tabs</li>
+  </ul>
+  <div class="task-input">
+    <div
+      class="task-content"
+      contenteditable="true"
+      data-placeholder="Add new task..."
+    ></div>
+    <div class="task-date">
+      <input type="date" />
+    </div>
+  </div>
+  <ul class="task-list"></ul>
+</section>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+  <div class="container">
+    <p class="footer-desc">
+      Made with ✨ by
+      <a
+        class="footer-link"
+        href="https://goit.global/ua/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GoIT team
+      </a>
+    </p>
+  </div>
+</footer>
+
+
+  </body>
+</html>
