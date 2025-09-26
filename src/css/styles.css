@@ -11,6 +11,8 @@
 
 /* Sections style */
 @import url('./header.css');
+@import url('./addNewListForm.css');
+@import url('./cards.css');
 @import url('./sidebar.css');
 @import url('./tasks.css');
 @import url('./footer.css');
