@@ -11,27 +11,23 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <script type="module" crossorigin src="/todo-list/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/todo-list/assets/index-DhvOT0Xh.css">
+    <link rel="stylesheet" crossorigin href="/todo-list/assets/index-1E2H0Wqc.css">
   </head>
   <body>
     <header class="header">
-  <div class="container">
+  <div class="container header-container">
     <nav class="nav">
       <a class="nav-logo" href="./index.html" aria-label="Site logo">TODO</a>
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-act}" href="./page-2.html"
-            >Settings</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-curr}" href="./page-3.html"
-            >Theme toggle</a
-          >
-        </li>
-      </ul>
+      <p class="nav-stats">0/2 tasks completed</p>
     </nav>
+    <button id="theme-toggle" class="theme-toggle">
+      <i class="fa-solid fa-moon"></i>
+    </button>
   </div>
 </header>
 
@@ -39,40 +35,74 @@
     <main>
       <!-- Loads the specified .html file -->
       <div class="container">
-        <section class="sidebar">
-  <ul class="widget-list">
-    <li class="widget-item greetings">
-      <p>Hi! 👋</p>
-      <p>What's your plan for today?</p>
-    </li>
-    <li class="widget-item calendar">
-      <p>Calendar</p>
-    </li>
-    <li class="widget-item forecast">
-      <p>Forecast</p>
-    </li>
-  </ul>
+        <section class="add-new-list-section">
+  <form class="add-new-list-form">
+    <input
+      type="text"
+      name="listName"
+      placeholder="Enter list name (e.g. Work Tasks, Personal Goals...)"
+      class="add-new-list-input"
+    />
+    <button type="submit" class="add-new-list-btn">
+      <i class="fa-solid fa-plus"></i>
+      Add List
+    </button>
+  </form>
 </section>
 
-        <section class="tasks">
-  <ul class="task-tab-list">
-    <li class="task-tab-item">All</li>
-    <li class="task-tab-item">Today</li>
-    <li class="task-tab-item">Tomorrow</li>
-    <li class="task-tab-item">Custom</li>
-    <li class="task-tab-item">Edit tabs</li>
+        <section class="cards-section">
+  <ul class="cards-list">
+    <li class="cards-item">
+      <div class="card-header">
+        <span class="card-title-wrapper">
+          <i class="fa-solid fa-paperclip"></i>
+          <p class="card-title">
+            Personal Tasks dhfhfhdhdfhdhfdhfhdhdfhdhdhdhdfhdfh
+          </p>
+        </span>
+        <div class="card-toolbar">
+          <div class="card-stats">1/2 completed</div>
+          <button type="button" class="reset-all-tasks-btn">
+            <i class="fa-solid fa-rotate-right"></i>
+          </button>
+          <button type="button" class="delete-card-btn">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+      </div>
+      <form class="add-new-task-form">
+        <input type="text" name="newTask" class="add-new-task-input" />
+        <button type="submit" class="add-new-task-btn">+</button>
+      </form>
+      <ul class="tasks-list">
+        <li class="task-item">First task</li>
+      </ul>
+    </li>
+    <li class="cards-item">
+      <div class="card-header">
+        <span class="card-title-wrapper">
+          <i class="fa-solid fa-paperclip"></i>
+          <p class="card-title">Personal Tasks</p>
+        </span>
+        <div class="card-toolbar">
+          <div class="card-stats">1/2 completed</div>
+          <button type="button" class="reset-all-tasks-btn">
+            <i class="fa-solid fa-rotate-right"></i>
+          </button>
+          <button type="button" class="delete-card-btn">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+      </div>
+      <form class="add-new-task-form">
+        <input type="text" name="newTask" class="add-new-task-input" />
+        <button type="submit" class="add-new-task-btn">+</button>
+      </form>
+      <ul class="tasks-list">
+        <li class="task-item">First task</li>
+      </ul>
+    </li>
   </ul>
-  <div class="task-input">
-    <div
-      class="task-content"
-      contenteditable="true"
-      data-placeholder="Add new task..."
-    ></div>
-    <div class="task-date">
-      <input type="date" />
-    </div>
-  </div>
-  <ul class="task-list"></ul>
 </section>
 
       </div>
