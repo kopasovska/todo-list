@@ -1,32 +1,7 @@
 <section class="cards-section">
+  <div class="no-lists-info invisible">No lists yet. Add first list</div>
   <ul class="cards-list">
-    <li class="cards-item">
-      <div class="card-header">
-        <span class="card-title-wrapper">
-          <i class="fa-solid fa-paperclip"></i>
-          <p class="card-title">
-            Personal Tasks dhfhfhdhdfhdhfdhfhdhdfhdhdhdhdfhdfh
-          </p>
-        </span>
-        <div class="card-toolbar">
-          <div class="card-stats">1/2 completed</div>
-          <button type="button" class="reset-all-tasks-btn">
-            <i class="fa-solid fa-rotate-right"></i>
-          </button>
-          <button type="button" class="delete-card-btn">
-            <i class="fa-solid fa-trash"></i>
-          </button>
-        </div>
-      </div>
-      <form class="add-new-task-form">
-        <input type="text" name="newTask" class="add-new-task-input" />
-        <button type="submit" class="add-new-task-btn">+</button>
-      </form>
-      <ul class="tasks-list">
-        <li class="task-item">First task</li>
-      </ul>
-    </li>
-    <li class="cards-item">
+    <!-- <li class="cards-item">
       <div class="card-header">
         <span class="card-title-wrapper">
           <i class="fa-solid fa-paperclip"></i>
@@ -34,21 +9,41 @@
         </span>
         <div class="card-toolbar">
           <div class="card-stats">1/2 completed</div>
-          <button type="button" class="reset-all-tasks-btn">
+          <button type="button" class="secondary-btn reset-all-tasks-btn">
             <i class="fa-solid fa-rotate-right"></i>
           </button>
-          <button type="button" class="delete-card-btn">
+          <button type="button" class="secondary-btn delete-card-btn">
             <i class="fa-solid fa-trash"></i>
           </button>
         </div>
       </div>
       <form class="add-new-task-form">
-        <input type="text" name="newTask" class="add-new-task-input" />
-        <button type="submit" class="add-new-task-btn">+</button>
+        <input
+          type="text"
+          name="taskName"
+          placeholder="Add a new task"
+          class="add-new-input task-input"
+        />
+        <button type="submit" class="primary-btn add-new-task-btn">
+          <i class="fa-solid fa-plus"></i>
+        </button>
       </form>
       <ul class="tasks-list">
-        <li class="task-item">First task</li>
+        <li class="task-item">
+          <span class="task-info-wrapper">
+            <i class="fa-regular fa-circle"></i>
+            <p class="task-text">task</p>
+          </span>
+          <div class="task-toolbar">
+            <button type="button" class="secondary-btn edit-task-btn">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+            <button type="button" class="secondary-btn delete-task-btn">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </li>
       </ul>
-    </li>
+    </li> -->
   </ul>
 </section>

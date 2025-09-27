@@ -1,0 +1,7 @@
+export const refs = {
+  listInput: document.querySelector('.list-input'),
+  addListForm: document.querySelector('.add-new-list-form'),
+  statsContainer: document.querySelector('.nav-stats'),
+  cardsContainer: document.querySelector('.cards-list'),
+  noCardsInfo: document.querySelector('.no-lists-info'),
+};

@@ -1,82 +1,93 @@
-const refs = {
-  taskInput: document.querySelector('.task-input'),
-  taskContent: document.querySelector('.task-content'),
-  taskDate: document.querySelector('.task-date input'),
-  taskList: document.querySelector('.task-list'),
-};
+import { refs } from './js/refs.js';
+import { updateStats } from './js/stats.js';
+import { deleteList, addNewList } from './js/lists.js';
+import {
+  addNewTask,
+  deleteTask,
+  toggleTaskStatus,
+  resetAllTasks,
+} from './js/tasks.js';
+import renderCards from './js/render.js';
 
-const getTasks = () => {
-  const tasks = JSON.parse(localStorage.getItem('tasks'))
-    ? JSON.parse(localStorage.getItem('tasks'))
-    : [];
-  if (tasks.length) {
-    renderTaskList(tasks);
-  }
-  return tasks;
-};
+/* Event Listeners */
 
-const renderTaskList = tasks => {
-  refs.taskList.innerHTML = '';
-
-  const markup = tasks
-    .map(
-      task => `<li class='task-item'>
-        <p class='task-item-date'>${task.taskDate}</p>
-        <p class='task-item-content'>${task.taskContent}</p>
-      </ li>`
-    )
-    .join('');
-
-  refs.taskList.insertAdjacentHTML('beforeend', markup);
-};
-
-const reset = () => {
-  refs.taskContent.textContent = '';
-  refs.taskDate.valueAsDate = new Date();
-  refs.taskInput.classList.remove('active');
-};
-
-const addTask = () => {
-  const newTask = {
-    taskContent: refs.taskContent.textContent.trim(),
-    taskDate: refs.taskDate.value,
-  };
-
-  if (!refs.taskContent) return;
-
-  const tasks = getTasks();
-  tasks.push(newTask);
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-
-  reset();
-  renderTaskList(tasks);
-};
-
-refs.taskDate.valueAsDate = new Date();
-
-document.addEventListener('DOMContentLoaded', () => {
-  getTasks();
+//add new list
+refs.addListForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const title = refs.listInput.value.trim();
+  if (!title) return;
+  addNewList(title);
+  refs.listInput.value = '';
 });
 
-refs.taskContent.addEventListener('input', () => {
-  if (refs.taskContent.textContent.trim() !== '') {
-    refs.taskInput.classList.add('active');
-  } else {
-    refs.taskInput.classList.remove('active');
+//delete list
+refs.cardsContainer.addEventListener('click', e => {
+  if (e.target.closest('.delete-card-btn')) {
+    const cardItem = e.target.closest('.cards-item');
+    const id = cardItem.dataset.id;
+    deleteList(id);
   }
 });
 
-refs.taskInput.addEventListener('keydown', e => {
-  if (e.key === 'Enter') {
+//add new task
+refs.cardsContainer.addEventListener('submit', e => {
+  const form = e.target.closest('.add-new-task-form');
+  if (form) {
     e.preventDefault();
-    addTask();
+
+    const input = form.querySelector('.task-input');
+    const taskText = input.value.trim();
+    if (!taskText) return;
+    const cardItem = form.closest('.cards-item');
+    const cardId = cardItem.dataset.id;
+
+    addNewTask(cardId, taskText);
+    input.value = '';
   }
 });
 
-document.addEventListener('click', e => {
-  if (!e.target.closest('.task-input')) {
-    if (refs.taskContent.textContent.trim() !== '') {
-      addTask();
-    }
+//delete task
+refs.cardsContainer.addEventListener('click', e => {
+  if (e.target.closest('.delete-task-btn')) {
+    const task = e.target.closest('.task-item');
+    const taskId = task.dataset.id;
+    if (!taskId) return;
+
+    const cardItem = task.closest('.cards-item');
+    const cardId = cardItem.dataset.id;
+
+    deleteTask(cardId, taskId);
   }
 });
+
+//complete task
+refs.cardsContainer.addEventListener('click', e => {
+  if (e.target.closest('.task-check')) {
+    const task = e.target.closest('.task-item');
+    const taskId = task.dataset.id;
+    if (!taskId) return;
+
+    const cardItem = task.closest('.cards-item');
+    const cardId = cardItem.dataset.id;
+
+    toggleTaskStatus(cardId, taskId);
+  }
+});
+
+//reset all tasks
+refs.cardsContainer.addEventListener('click', e => {
+  if (e.target.closest('.reset-all-tasks-btn')) {
+    const cardItem = e.target.closest('.cards-item');
+    const id = cardItem.dataset.id;
+    resetAllTasks(id);
+  }
+});
+
+/* Start App */
+
+const startApp = () => {
+  updateStats();
+  renderCards();
+};
+
+startApp();

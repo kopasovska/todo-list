@@ -38,7 +38,7 @@
   --input: hsl(220 20% 92%);
   --ring: hsl(250 70% 60%);
 
-  --success: hsl(140 70% 50%);
+  --success: hsl(140, 70%, 50%);
   --success-foreground: hsl(0 0% 100%);
 
   --gradient-primary: linear-gradient(
@@ -57,7 +57,11 @@
     hsl(250 40% 88%)
   );
 
-  /*animations*/
+  /* Shadows */
+  --shadow-card: 0 4px 20px hsl(220 20% 80% / 0.3);
+  --shadow-hover: 0 8px 30px hsl(250 70% 60% / 0.2);
+
+  /* Animations */
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
