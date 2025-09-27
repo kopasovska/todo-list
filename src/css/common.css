@@ -1,4 +1,4 @@
-.add-new-input {
+.text-input {
   flex: 1;
 
   min-height: 40px;
@@ -14,11 +14,11 @@
   transition: var(--transition-smooth);
 }
 
-.add-new-input::placeholder {
+.text-input::placeholder {
   color: var(--muted-foreground);
 }
 
-.add-new-input:focus {
+.text-input:focus {
   border: 2px solid var(--ring);
 }
 

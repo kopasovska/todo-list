@@ -6,6 +6,7 @@ import {
   deleteTask,
   toggleTaskStatus,
   resetAllTasks,
+  updateTask,
 } from './js/tasks.js';
 import renderCards from './js/render.js';
 
@@ -80,6 +81,82 @@ refs.cardsContainer.addEventListener('click', e => {
     const cardItem = e.target.closest('.cards-item');
     const id = cardItem.dataset.id;
     resetAllTasks(id);
+  }
+});
+
+//edit task
+refs.cardsContainer.addEventListener('click', e => {
+  if (e.target.closest('.edit-task-btn')) {
+    const task = e.target.closest('.task-item');
+    const textElement = task.querySelector('.task-text');
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'text-input task-input';
+    input.value = textElement.textContent;
+
+    textElement.replaceWith(input);
+    input.focus();
+
+    const toolbar = task.querySelector('.task-toolbar');
+    toolbar.innerHTML = `<button type="button" class="secondary-btn save-task-btn">
+          <i class="fa-solid fa-check"></i>
+        </button>
+        <button type="button" class="secondary-btn cancel-edit-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>`;
+
+    task.classList.add('editing');
+  }
+});
+
+//save changes helper
+const saveChanges = (taskItem, newText) => {
+  const cardItem = taskItem.closest('.cards-item');
+  const cardId = cardItem.dataset.id;
+  const taskId = taskItem.dataset.id;
+
+  updateTask(cardId, taskId, newText);
+};
+
+//save changes by click
+refs.cardsContainer.addEventListener('click', e => {
+  if (e.target.closest('.save-task-btn')) {
+    const taskItem = e.target.closest('.task-item');
+
+    const newText = taskItem.querySelector('.task-input').value.trim();
+    if (!newText) return;
+
+    saveChanges(taskItem, newText);
+  }
+});
+
+//save changes by enter
+refs.cardsContainer.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && e.target.classList.contains('task-input')) {
+    const taskItem = e.target.closest('.task-item');
+
+    const newText = taskItem.querySelector('.task-input').value.trim();
+    if (!newText) return;
+
+    saveChanges(taskItem, newText);
+  }
+});
+
+//cancel changes by click
+refs.cardsContainer.addEventListener('click', e => {
+  if (e.target.closest('.cancel-edit-btn')) {
+    renderCards();
+  }
+});
+
+//cancel changes by escape
+refs.cardsContainer.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && e.target.classList.contains('task-input')) {
+    const taskItem = e.target.closest('.task-item');
+    if (!taskItem) return;
+
+    renderCards();
   }
 });
 

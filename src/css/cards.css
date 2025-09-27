@@ -20,7 +20,7 @@
   background-color: var(--card);
 
   width: calc((100% - 48px) / 3);
-  min-width: 300px;
+  min-width: 343px;
 }
 
 .card-header {

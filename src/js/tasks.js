@@ -59,3 +59,13 @@ export const resetAllTasks = listId => {
   saveData(data);
   renderCards();
 };
+
+export const updateTask = (listId, taskId, newText) => {
+  const data = getSavedData();
+
+  const list = data.find(l => l.id === listId);
+  const task = list.tasks.find(t => t.id === taskId);
+  task.text = newText;
+  saveData(data);
+  renderCards();
+};

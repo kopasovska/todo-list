@@ -28,6 +28,11 @@ const renderTask = task => {
 const renderCard = list => {
   const completedCount = list.tasks.filter(t => t.completed).length;
 
+  const sortedTasks = [
+    ...list.tasks.filter(t => !t.completed),
+    ...list.tasks.filter(t => t.completed),
+  ];
+
   return `
     <li class="cards-item" data-id="${list.id}">
       <div class="card-header">
@@ -48,13 +53,13 @@ const renderCard = list => {
         </div>
       </div>
       <form class="add-new-task-form">
-        <input type="text" name="taskName" placeholder="Add a new task" class="add-new-input task-input" />
+        <input type="text" name="taskName" placeholder="Add a new task" class="text-input task-input" />
         <button type="submit" class="primary-btn add-new-task-btn">
           <i class="fa-solid fa-plus"></i>
         </button>
       </form>
       <ul class="tasks-list">
-        ${list.tasks.map(renderTask).join('')}
+        ${sortedTasks.map(renderTask).join('')}
       </ul>
     </li>
   `;

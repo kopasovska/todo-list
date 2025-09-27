@@ -60,7 +60,14 @@
   transition: var(--transition-smooth);
 }
 
-.edit-task-btn {
+.edit-task-btn,
+.save-task-btn,
+.cancel-edit-btn {
   background-color: var(--secondary);
   color: var(--secondary-foreground);
+}
+
+.task-item.editing .task-toolbar {
+  opacity: 1;
+  pointer-events: auto;
 }
