@@ -1,0 +1,16 @@
+.weather-widget {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 8px;
+  background: var(--gradient-weather);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-cloud {
+  color: var(--white);
+  box-shadow: var(--shadow-card);
+}

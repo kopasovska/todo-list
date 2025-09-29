@@ -4,6 +4,7 @@
   min-height: 40px;
   padding: 8px;
 
+  background-color: var(--background);
   border-radius: 8px;
   border: 1px solid var(--border);
   outline: none;
@@ -31,7 +32,7 @@
   background: var(--gradient-primary);
   color: var(--primary-foreground);
 
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
 
   display: inline-flex;
@@ -70,4 +71,10 @@
 
 .invisible {
   display: none;
+}
+
+@media (min-width: 768px) {
+  .primary-btn {
+    font-size: 14px;
+  }
 }

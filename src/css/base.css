@@ -37,6 +37,7 @@
   --border: hsl(220 20% 88%);
   --input: hsl(220 20% 92%);
   --ring: hsl(250 70% 60%);
+  --white: hsl(0, 0%, 100%);
 
   --success: hsl(140, 70%, 50%);
   --success-foreground: hsl(0 0% 100%);
@@ -56,6 +57,11 @@
     hsl(220 60% 95%),
     hsl(250 40% 88%)
   );
+  --gradient-weather: linear-gradient(
+    to bottom,
+    hsl(220, 100%, 55%),
+    hsl(210, 100%, 70%)
+  );
 
   /* Shadows */
   --shadow-card: 0 4px 20px hsl(220 20% 80% / 0.3);
@@ -65,8 +71,72 @@
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+:root.dark {
+  /* Dark theme colors */
+  --background: hsl(240 15% 8%);
+  --foreground: hsl(220 20% 95%);
+
+  --card: hsl(240 10% 12%);
+  --card-foreground: hsl(220 20% 95%);
+
+  --popover: hsl(240 10% 12%);
+  --popover-foreground: hsl(220 20% 95%);
+
+  --primary: hsl(260 70% 70);
+  --primary-foreground: hsl(240 15% 8%);
+
+  --secondary: hsl(240 15% 18%);
+  --secondary-foreground: hsl(220 20% 85%);
+
+  --muted: hsl(240 15% 15%);
+  --muted-foreground: hsl(220 20% 65%);
+
+  --accent: hsl(280 60% 75%);
+  --accent-foreground: hsl(240 15% 8%);
+
+  --destructive: hsl(0 70% 60%);
+  --destructive-foreground: hsl(0 0% 100%);
+
+  --border: hsl(240 15% 20%);
+  --input: hsl(240 15% 18%);
+  --ring: hsl(260 70% 70%);
+
+  --success: hsl(140 70% 50%);
+  --success-foreground: hsl(0 0% 100%);
+
+  /* Dark theme gradients */
+  --gradient-primary: linear-gradient(
+    135deg,
+    hsl(260 70% 70%),
+    hsl(300 60% 80%)
+  );
+  --gradient-secondary: linear-gradient(
+    135deg,
+    hsl(240 50% 40%),
+    hsl(280 60% 50%)
+  );
+  --gradient-background: linear-gradient(
+    135deg,
+    hsl(240 20% 6%),
+    hsl(260 30% 10%)
+  );
+  --gradient-weather: linear-gradient(
+    to bottom,
+    hsl(220, 100%, 55%),
+    hsl(210, 100%, 70%)
+  );
+
+  /* Dark theme shadows */
+  --shadow-card: 0 4px 20px hsl(240 50% 5% / 0.5);
+  --shadow-hover: 0 8px 30px hsl(260 70% 70% / 0.3);
+}
+
 body {
   background: var(--gradient-background);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+
   color: var(--foreground);
   display: flex;
   flex-direction: column;

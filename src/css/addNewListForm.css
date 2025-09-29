@@ -3,10 +3,22 @@
   margin-bottom: 32px;
 }
 
-.add-new-list-form {
-  width: 50%;
-  min-width: 300px;
-  display: flex;
+.new-list-form-wrapper {
+  background-color: var(--card);
+  padding: 16px;
+  border: 1px solod var(--border);
+  border-radius: 16px;
+  width: 100%;
+}
 
+.add-new-list-form {
+  width: 100%;
+  display: flex;
   gap: 16px;
+}
+
+@media (min-width: 1440px) {
+  .new-list-form-wrapper {
+    width: 50%;
+  }
 }

@@ -4,4 +4,6 @@ export const refs = {
   statsContainer: document.querySelector('.nav-stats'),
   cardsContainer: document.querySelector('.cards-list'),
   noCardsInfo: document.querySelector('.no-lists-info'),
+  themeToggleBtn: document.querySelector('.theme-toggle-btn'),
+  root: document.documentElement,
 };

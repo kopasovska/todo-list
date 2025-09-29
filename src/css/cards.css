@@ -19,8 +19,8 @@
 
   background-color: var(--card);
 
-  width: calc((100% - 48px) / 3);
-  min-width: 343px;
+  width: 100%;
+  min-width: 288px;
 }
 
 .card-header {
@@ -101,4 +101,16 @@
 .add-new-task-form {
   display: flex;
   gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .cards-item {
+    width: calc((100% - 24px) / 2);
+  }
+}
+
+@media (min-width: 1440px) {
+  .cards-item {
+    width: calc((100% - 48px) / 3);
+  }
 }

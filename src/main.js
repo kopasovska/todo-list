@@ -9,6 +9,8 @@ import {
   updateTask,
 } from './js/tasks.js';
 import renderCards from './js/render.js';
+import getForecast from './js/weatherAPI.js';
+import { checkSavedTheme } from './js/theme.js';
 
 /* Event Listeners */
 
@@ -160,10 +162,23 @@ refs.cardsContainer.addEventListener('keydown', e => {
   }
 });
 
+//toggle theme
+refs.themeToggleBtn.addEventListener('click', () => {
+  refs.root.classList.toggle('dark');
+
+  if (refs.root.classList.contains('dark')) {
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.setItem('theme', 'light');
+  }
+});
+
 /* Start App */
 
 const startApp = () => {
   updateStats();
+  getForecast();
+  checkSavedTheme();
   renderCards();
 };
 
