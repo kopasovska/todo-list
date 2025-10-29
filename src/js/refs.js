@@ -6,4 +6,5 @@ export const refs = {
   noCardsInfo: document.querySelector('.no-lists-info'),
   themeToggleBtn: document.querySelector('.theme-toggle-btn'),
   root: document.documentElement,
+  weatherWidget: document.querySelector('.weather-widget'),
 };

@@ -8,9 +8,10 @@ import {
   resetAllTasks,
   updateTask,
 } from './js/tasks.js';
-import renderCards from './js/render.js';
+import renderCards from './js/renderCards.js';
 import getForecast from './js/weatherAPI.js';
 import { checkSavedTheme } from './js/theme.js';
+import renderWeatherWidget from './js/renderWeatherWidget.js';
 
 /* Event Listeners */
 
@@ -175,11 +176,13 @@ refs.themeToggleBtn.addEventListener('click', () => {
 
 /* Start App */
 
-const startApp = () => {
+const startApp = async () => {
   updateStats();
   getForecast();
   checkSavedTheme();
   renderCards();
+  const forecast = await getForecast();
+  renderWeatherWidget(forecast);
 };
 
 startApp();

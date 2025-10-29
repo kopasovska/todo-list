@@ -1,5 +1,5 @@
 import { saveData, getSavedData } from './storage.js';
-import renderCards from './render.js';
+import renderCards from './renderCards.js';
 
 export const addNewList = title => {
   const data = getSavedData();
