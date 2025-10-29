@@ -1,16 +1,16 @@
 import { refs } from './refs.js';
 
 const getIconByWeatherCode = (code, isDay) => {
-  if (code === 'Clear' && isDay) return '../img/sprite.svg#icon-sun';
-  if (code === 'Clear' && !isDay) return '../img/sprite.svg#icon-moon';
-  if (code === 'Cloudy' && isDay) return '../img/sprite.svg#icon-partly-cloudy';
+  if (code === 'Clear' && isDay) return './img/sprite.svg#icon-sun';
+  if (code === 'Clear' && !isDay) return './img/sprite.svg#icon-moon';
+  if (code === 'Cloudy' && isDay) return './img/sprite.svg#icon-partly-cloudy';
   if (code === 'Cloudy' && !isDay)
-    return '../img/sprite.svg#icon-partly-cloudy-night';
-  if (code === 'Fog') return '../img/sprite.svg#icon-cloudy';
-  if (code === 'Rain') return '../img/sprite.svg#icon-rainy';
-  if (code === 'Snow') return '../img/sprite.svg#icon-snowy';
-  if (code === 'Thunderstorms') return '../img/sprite.svg#icon-thunder';
-  if (code === 'Unknown') return '../img/sprite.svg#icon-unknown';
+    return './img/sprite.svg#icon-partly-cloudy-night';
+  if (code === 'Fog') return './img/sprite.svg#icon-cloudy';
+  if (code === 'Rain') return './img/sprite.svg#icon-rainy';
+  if (code === 'Snow') return './img/sprite.svg#icon-snowy';
+  if (code === 'Thunderstorms') return './img/sprite.svg#icon-thunder';
+  if (code === 'Unknown') return './img/sprite.svg#icon-unknown';
 };
 
 const getWeatherWidgetMarkup = forecast => {
