@@ -34,12 +34,12 @@ function getWeatherDesc(code) {
 }
 
 const fetchCoordinates = async () => {
-  const response = await axios.get('https://ip-api.com/json/');
+  const response = await axios.get('https://ipapi.co/json/');
   return {
-    lat: response.data.lat,
-    lon: response.data.lon,
+    lat: response.data.latitude,
+    lon: response.data.longitude,
     city: response.data.city,
-    country: response.data.country,
+    country: response.data.country_name,
   };
 };
 
@@ -79,9 +79,6 @@ const fetchWeather = async ({ lat, lon, city, country }) => {
 
   const sunrise = daily.variables(3);
   const sunset = daily.variables(5);
-
-  console.log(current.time());
-  console.log(utcOffsetSeconds);
 
   const dailyCodes = [...daily.variables(0).valuesArray()];
   const dailyWeatherDesc = dailyCodes.map(code => getWeatherDesc(code));
