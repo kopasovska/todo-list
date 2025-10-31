@@ -64,6 +64,7 @@
   box-shadow: var(--shadow-card);
   transition: var(--transition-smooth);
   opacity: 0;
+  visibility: hidden;
 }
 
 .fa-sun {
