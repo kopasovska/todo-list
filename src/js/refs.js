@@ -6,5 +6,8 @@ export const refs = {
   noCardsInfo: document.querySelector('.no-lists-info'),
   themeToggleBtn: document.querySelector('.theme-toggle-btn'),
   root: document.documentElement,
+  weatherButton: document.querySelector('.weather-button'),
+  faSunIcon: document.querySelector('.fa-sun'),
+  faCloudIcon: document.querySelector('.fa-cloud'),
   weatherWidget: document.querySelector('.weather-widget'),
 };

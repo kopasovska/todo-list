@@ -174,6 +174,19 @@ refs.themeToggleBtn.addEventListener('click', () => {
   }
 });
 
+//toggleweather widget
+refs.weatherButton.addEventListener('click', () => {
+  if (refs.weatherWidget.classList.contains('opened')) {
+    refs.weatherWidget.classList.remove('opened');
+    refs.faSunIcon.classList.remove('hidden');
+    refs.faCloudIcon.classList.remove('opened');
+  } else {
+    refs.weatherWidget.classList.add('opened');
+    refs.faSunIcon.classList.add('hidden');
+    refs.faCloudIcon.classList.add('opened');
+  }
+});
+
 /* Start App */
 
 const startApp = async () => {

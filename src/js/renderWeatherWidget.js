@@ -1,16 +1,17 @@
 import { refs } from './refs.js';
+import img from '../img/sprite.svg'
 
 const getIconByWeatherCode = (code, isDay) => {
-  if (code === 'Clear' && isDay) return './img/sprite.svg#icon-sun';
-  if (code === 'Clear' && !isDay) return './img/sprite.svg#icon-moon';
-  if (code === 'Cloudy' && isDay) return './img/sprite.svg#icon-partly-cloudy';
+  if (code === 'Clear' && isDay) return `${img}#icon-sun`;
+  if (code === 'Clear' && !isDay) return `${img}#icon-moon`;
+  if (code === 'Cloudy' && isDay) return `${img}#icon-partly-cloudy`;
   if (code === 'Cloudy' && !isDay)
-    return './img/sprite.svg#icon-partly-cloudy-night';
-  if (code === 'Fog') return './img/sprite.svg#icon-cloudy';
-  if (code === 'Rain') return './img/sprite.svg#icon-rainy';
-  if (code === 'Snow') return './img/sprite.svg#icon-snowy';
-  if (code === 'Thunderstorms') return './img/sprite.svg#icon-thunder';
-  if (code === 'Unknown') return './img/sprite.svg#icon-unknown';
+    return `${img}#icon-partly-cloudy-night`;
+  if (code === 'Fog') return `${img}#icon-cloudy`;
+  if (code === 'Rain') return `${img}#icon-rainy`;
+  if (code === 'Snow') return `${img}#icon-snowy`;
+  if (code === 'Thunderstorms') return `${img}#icon-thunder`;
+  if (code === 'Unknown') return `${img}#icon-unknown`;
 };
 
 const getWeatherWidgetMarkup = forecast => {
@@ -43,7 +44,7 @@ const getWeatherWidgetMarkup = forecast => {
     <div class="sun-info-wrapper">
       <span class="sun-wrapper">
         <svg class="sun-icon" width="24" height="24" aria-hidden="true">
-          <use href="../img/sprite.svg#icon-sunrise"></use>
+          <use href="${img}#icon-sunrise"></use>
         </svg>
         <p class="weather-bright-text">${forecast.daily.sunrise[0]}</p>
       </span>
@@ -51,14 +52,14 @@ const getWeatherWidgetMarkup = forecast => {
       <span class="sun-wrapper">
         <p class="weather-bright-text">${forecast.daily.sunset[0]}</p>
         <svg class="sun-icon" width="24" height="24" aria-hidden="true">
-          <use href="../img/sprite.svg#icon-sunset"></use>
+          <use href="${img}#icon-sunset"></use>
         </svg>
       </span>
     </div>
   </div>
   <div class="rain-info-wrapper glass-effect">
     <svg class="rainy-icon" width="24" height="24" aria-hidden="true">
-      <use href="../img/sprite.svg#icon-rainy"></use>
+      <use href="${img}#icon-rainy"></use>
     </svg>
     <p class="weather-text">Rain: <span class="bold-text">${
       forecast.current.precipitation

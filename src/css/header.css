@@ -32,7 +32,7 @@
 
 .nav-stats {
   color: var(--muted-foreground);
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .theme-toggle-btn {
@@ -54,5 +54,11 @@
   &:focus {
     color: var(--accent-foreground);
     background-color: var(--accent);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .nav-stats {
+    font-size: 14px;
   }
 }

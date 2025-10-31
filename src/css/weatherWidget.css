@@ -27,7 +27,7 @@
     opacity: 0.9;
   }
 
-  &:hover .fa-sun,
+  /* &:hover .fa-sun,
   &:focus .fa-sun {
     opacity: 0;
     pointer-events: none;
@@ -36,13 +36,13 @@
   &:focus .fa-cloud,
   &:hover .fa-cloud {
     opacity: 1;
-  }
+  } */
 
-  &:hover + .weather-widget,
+  /* &:hover + .weather-widget,
   &:focus + .weather-widget {
     opacity: 1;
     visibility: visible;
-  }
+  } */
 }
 
 .icon-wrapper {
@@ -87,9 +87,21 @@
   position: fixed;
   bottom: 112px;
   right: 16px;
-  width: 288px;
+  width: calc(100% - 32px);
+  min-width: 288px;
+  max-width: 348px;
 
   border-radius: 42px;
+}
+
+.opened {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .today-weather-wrapper {
@@ -192,18 +204,9 @@
   font-size: 10px;
 }
 
-@media (min-width: 380px) {
-  .weather-widget {
-    width: 348px;
-  }
-}
-
 @media (min-width: 768px) {
   .weather-button,
   .weather-widget {
-    right: 64px;
+    right: 32px;
   }
-}
-
-@media (min-width: 1440px) {
 }
