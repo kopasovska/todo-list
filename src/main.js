@@ -175,7 +175,8 @@ refs.themeToggleBtn.addEventListener('click', () => {
 });
 
 //toggleweather widget
-refs.weatherButton.addEventListener('click', () => {
+refs.weatherButton.addEventListener('click', e => {
+  e.stopPropagation();
   if (refs.weatherWidget.classList.contains('opened')) {
     refs.weatherWidget.classList.remove('opened');
     refs.faSunIcon.classList.remove('hidden');
@@ -184,6 +185,12 @@ refs.weatherButton.addEventListener('click', () => {
     refs.weatherWidget.classList.add('opened');
     refs.faSunIcon.classList.add('hidden');
     refs.faCloudIcon.classList.add('opened');
+  }
+});
+
+document.addEventListener('click', e => {
+  if (!refs.weatherWidget.contains(e.target)) {
+    refs.weatherWidget.classList.remove('opened');
   }
 });
 
