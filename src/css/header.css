@@ -54,6 +54,7 @@
   &:focus {
     color: var(--accent-foreground);
     background-color: var(--accent);
+    box-shadow: var(--shadow-hover);
   }
 }
 

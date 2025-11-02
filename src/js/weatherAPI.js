@@ -103,7 +103,7 @@ const fetchWeather = async ({ lat, lon, city, country }) => {
       snowfall: current.variables(3).value(),
       weather_code: getWeatherDesc(current.variables(4).value()),
       wind_speed_10m: Math.round(current.variables(5).value()),
-      precipitation: current.variables(6).value(),
+      precipitation: Math.round(current.variables(6).value()),
       is_day: current.variables(7).value(),
     },
     daily: {

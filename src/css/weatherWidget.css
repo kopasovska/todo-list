@@ -11,7 +11,7 @@
   bottom: 64px;
   right: 16px;
 
-  width: 40px;
+  /* width: 40px; */
   height: 40px;
 
   border-radius: 8px;
@@ -22,9 +22,15 @@
 
   transition: var(--transition-smooth);
 
+  /* background: var(--gradient-primary); */
+  color: var(--primary-foreground);
+  font-weight: 600;
+  box-shadow: var(--shadow-card);
+
   &:focus,
   &:hover {
     opacity: 0.9;
+    box-shadow: var(--shadow-hover);
   }
 
   /* &:hover .fa-sun,
@@ -43,6 +49,11 @@
     opacity: 1;
     visibility: visible;
   } */
+}
+
+.fa-umbrella {
+  color: var(--primary-foreground);
+  margin-left: 8px;
 }
 
 .icon-wrapper {
@@ -132,7 +143,7 @@
 
 .weather-bright-text {
   font-size: 12px;
-  color: var(--bright-foreground);
+  color: var(--primary-foreground);
 }
 
 .bold-text {
@@ -162,7 +173,7 @@
 }
 
 .sun-icon {
-  fill: var(--bright-foreground);
+  fill: var(--primary-foreground);
 }
 
 .rain-info-wrapper {
