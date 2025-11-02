@@ -1,12 +1,21 @@
 import { refs } from './refs.js';
-import img from '../img/sprite.svg'
+import img from '../img/sprite.svg';
 
 const getIconByWeatherCode = (code, isDay) => {
-  if (code === 'Clear' && isDay) return `${img}#icon-sun`;
-  if (code === 'Clear' && !isDay) return `${img}#icon-moon`;
-  if (code === 'Cloudy' && isDay) return `${img}#icon-partly-cloudy`;
-  if (code === 'Cloudy' && !isDay)
-    return `${img}#icon-partly-cloudy-night`;
+  if (code === 'Clear') {
+    if (isDay === 0) {
+      return `${img}#icon-moon`;
+    } else {
+      return `${img}#icon-sun`;
+    }
+  }
+  if (code === 'Cloudy') {
+    if (isDay === 0) {
+      return `${img}#icon-partly-cloudy-night`;
+    } else {
+      return `${img}#icon-partly-cloudy`;
+    }
+  }
   if (code === 'Fog') return `${img}#icon-cloudy`;
   if (code === 'Rain') return `${img}#icon-rainy`;
   if (code === 'Snow') return `${img}#icon-snowy`;
@@ -29,7 +38,7 @@ const getWeatherWidgetMarkup = forecast => {
   return `<div class="today-weather-wrapper glass-effect">
     <div class="today-weather-info">
       <svg class="today-weather-icon" width="80" height="80" aria-hidden="true">
-        <use href=${iconPath}></use>
+        <use xlink:href=${iconPath}></use>
       </svg>
       <span class="today-weather-data-wrapper">
         <p class="weather-text today-date">${forecast.current.time}</p>
@@ -44,7 +53,7 @@ const getWeatherWidgetMarkup = forecast => {
     <div class="sun-info-wrapper">
       <span class="sun-wrapper">
         <svg class="sun-icon" width="24" height="24" aria-hidden="true">
-          <use href="${img}#icon-sunrise"></use>
+          <use xlink:href="${img}#icon-sunrise"></use>
         </svg>
         <p class="weather-bright-text">${forecast.daily.sunrise[0]}</p>
       </span>
@@ -52,14 +61,14 @@ const getWeatherWidgetMarkup = forecast => {
       <span class="sun-wrapper">
         <p class="weather-bright-text">${forecast.daily.sunset[0]}</p>
         <svg class="sun-icon" width="24" height="24" aria-hidden="true">
-          <use href="${img}#icon-sunset"></use>
+          <use xlink:href="${img}#icon-sunset"></use>
         </svg>
       </span>
     </div>
   </div>
   <div class="rain-info-wrapper glass-effect">
     <svg class="rainy-icon" width="24" height="24" aria-hidden="true">
-      <use href="${img}#icon-rainy"></use>
+      <use xlink:href="${img}#icon-rainy"></use>
     </svg>
     <p class="weather-text">Rain: <span class="bold-text">${
       forecast.current.precipitation
@@ -79,7 +88,7 @@ const getWeatherWidgetMarkup = forecast => {
       return `<li class="forecast-item glass-effect">
       <p class="weather-text day-of-week-text">${i === 0 ? 'Today' : day}</p>
       <svg class="rainy-icon" width="24" height="24" aria-hidden="true">
-        <use href="${getIconByWeatherCode(
+        <use xlink:href="${getIconByWeatherCode(
           forecast.daily.weather_code[i]
         )}"></use>
       </svg>
